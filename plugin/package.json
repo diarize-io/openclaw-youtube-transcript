@@ -1,7 +1,8 @@
 {
   "name": "@diarize/openclaw-youtube-transcript-speaker-diarization",
   "version": "0.1.0",
-  "description": "OpenClaw plugin for YouTube transcripts with speaker diarization powered by diarize.",
+  "description": "Speaker-labeled YouTube transcripts for OpenClaw, powered by diarize.",
+  "license": "MIT",
   "type": "module",
   "files": [
     "index.js",

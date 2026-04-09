@@ -1,6 +1,6 @@
 ---
 name: youtube-transcript-speaker-diarization
-description: Generate YouTube transcripts with speaker diarization through the YouTube Transcript API. Use when you need a clean speaker-aware transcript in TXT, JSON, SRT, or VTT format.
+description: Generate speaker-aware YouTube transcripts through diarize. Use when generic transcript skills are not enough and you need attributed speakers in TXT, JSON, SRT, or VTT format.
 homepage: https://diarize.io/docs
 metadata:
   {

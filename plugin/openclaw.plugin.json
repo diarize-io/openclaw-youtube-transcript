@@ -1,7 +1,7 @@
 {
   "id": "youtube-transcript-speaker-diarization",
   "name": "YouTube Transcript with Speaker Diarization",
-  "description": "Turn YouTube links into speaker-aware transcripts with diarization through diarize.",
+  "description": "Turn YouTube links into clean, speaker-aware transcripts through diarize when plain transcript tools are not enough.",
   "version": "0.1.0",
   "skills": [
     "skills/youtube-transcript-speaker-diarization"

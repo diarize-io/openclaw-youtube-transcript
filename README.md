@@ -1,6 +1,6 @@
 # YouTube Transcript with Speaker Diarization
 
-Public, inspectable OpenClaw integration for turning YouTube links into speaker-aware transcripts.
+Public, inspectable OpenClaw integration for people who need more than a generic YouTube transcript: diarize turns YouTube links into clean, speaker-aware transcripts.
 
 This repo contains two install surfaces:
 
@@ -131,3 +131,7 @@ See [SECURITY.md](./SECURITY.md).
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## License
+
+MIT. See [LICENSE](./LICENSE).

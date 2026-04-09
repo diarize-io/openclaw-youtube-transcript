@@ -2,6 +2,14 @@
 
 This folder contains the native OpenClaw plugin.
 
+This is the recommended install surface. It exposes typed tools directly in OpenClaw and does not require `bash`, `curl`, or `jq` on the host.
+
+Before installing:
+
+1. sign up at [diarize.io](https://diarize.io)
+2. create an API key at [diarize.io/settings/api-keys](https://diarize.io/settings/api-keys)
+3. install the plugin and paste the key into plugin config
+
 Install locally:
 
 ```bash

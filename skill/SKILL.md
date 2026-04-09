@@ -33,6 +33,12 @@ metadata:
 
 Use this skill when you need a fast, speaker-aware transcript from a YouTube link.
 
+Before first use:
+
+1. sign up at `https://diarize.io`
+2. create an API key at `https://diarize.io/settings/api-keys`
+3. set `YOUTUBE_TRANSCRIPT_API_KEY` or configure the skill in OpenClaw
+
 This skill is powered by diarize, but the public interface is intentionally descriptive:
 
 - skill name: `youtube-transcript-speaker-diarization`
@@ -82,12 +88,14 @@ The script resolves credentials in this order:
 1. `YOUTUBE_TRANSCRIPT_API_KEY`
 2. `DIARIZE_API_KEY`
 3. `skills.entries["youtube-transcript-speaker-diarization"].apiKey` in the active OpenClaw config
+4. `skills.entries["youtube-transcript"].apiKey` in the active OpenClaw config as a legacy alias
 
 Optional base URL overrides:
 
 1. `YOUTUBE_TRANSCRIPT_BASE_URL`
 2. `DIARIZE_BASE_URL`
 3. `skills.entries["youtube-transcript-speaker-diarization"].baseUrl`
+4. `skills.entries["youtube-transcript"].baseUrl` as a legacy alias
 
 Example OpenClaw config:
 
@@ -95,10 +103,6 @@ Example OpenClaw config:
 {
   skills: {
     entries: {
-      "youtube-transcript": {
-        apiKey: "YOUR_DIARIZE_API_KEY",
-        baseUrl: "https://diarize.io",
-      },
       "youtube-transcript-speaker-diarization": {
         apiKey: "YOUR_DIARIZE_API_KEY",
         baseUrl: "https://diarize.io",
@@ -112,6 +116,6 @@ Example OpenClaw config:
 
 - Prefer `run` unless you explicitly need multi-step control.
 - If the job times out, return the `jobId` and use `status` or `fetch` later.
-- Ask for a new API key only when the script says auth is missing or rejected.
+- Ask the user to create a diarize API key at `https://diarize.io/settings/api-keys` only when auth is missing or rejected.
 - Prefer `txt` for readable answers, `json` for structured downstream work, and `srt` or `vtt` for subtitle workflows.
 - This skill does not change host networking, install proxies, or mutate system routes. It only calls the diarize API.

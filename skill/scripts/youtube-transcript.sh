@@ -23,7 +23,11 @@ read_skill_value() {
   local key="$1"
 
   if [[ -f "$CONFIG_PATH" ]] && command -v jq >/dev/null 2>&1; then
-    jq -r --arg key "$key" '.skills.entries["youtube-transcript"][$key] // empty' "$CONFIG_PATH" 2>/dev/null || true
+    jq -r --arg key "$key" '
+      .skills.entries["youtube-transcript-speaker-diarization"][$key]
+      // .skills.entries["youtube-transcript"][$key]
+      // empty
+    ' "$CONFIG_PATH" 2>/dev/null || true
     return
   fi
 
@@ -41,7 +45,7 @@ resolve_api_key() {
   fi
 
   if [[ -z "$key" ]]; then
-    echo "Missing API key. Set YOUTUBE_TRANSCRIPT_API_KEY or skills.entries[\"youtube-transcript\"].apiKey." >&2
+    echo "Missing API key. Set YOUTUBE_TRANSCRIPT_API_KEY, DIARIZE_API_KEY, or skills.entries[\"youtube-transcript-speaker-diarization\"].apiKey." >&2
     exit 1
   fi
 

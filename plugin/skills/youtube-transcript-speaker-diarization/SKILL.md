@@ -41,6 +41,8 @@ Typical sequence:
 
 ## Setup notes
 
+Before first use, create a diarize account and generate an API key at `https://diarize.io/settings/api-keys`.
+
 If a tool reports missing auth, tell the user to configure the plugin entry:
 
 ```json5

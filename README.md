@@ -9,6 +9,17 @@ This repo contains two install surfaces:
 
 Powered by [diarize](https://diarize.io), but intentionally published as a trust-first, standalone integration repo rather than part of the private diarize application codebase.
 
+## Real user flow
+
+This is the path we expect most people to take:
+
+1. Sign up for a diarize account at [diarize.io](https://diarize.io).
+2. Create an API key at [diarize.io/settings/api-keys](https://diarize.io/settings/api-keys).
+3. Install either the native plugin or the standalone skill.
+4. Configure the API key once, then submit YouTube URLs through OpenClaw.
+
+Your API key consumes your diarize minute balance. If the key is valid but your account has no remaining balance, job creation will fail at the diarize API layer.
+
 ## Why this repo exists
 
 ClawHub is crowded with generic YouTube transcript skills, and several flagged entries are flagged because the packaged behavior does not match the metadata or because they perform risky host-level operations.
@@ -41,17 +52,39 @@ plugin/
 
 Clone the repo, then install either the skill or the plugin.
 
-### Standalone skill
+### Recommended: native plugin
 
-```bash
-openclaw skills install ./skill
-```
-
-### Native plugin
+The plugin is the cleanest install path. It does not require `bash`, `curl`, or `jq`, and it exposes typed tools directly inside OpenClaw.
 
 ```bash
 openclaw plugins install ./plugin
 openclaw plugins enable youtube-transcript-speaker-diarization
+```
+
+Then configure your diarize API key in the plugin entry:
+
+```json5
+{
+  plugins: {
+    entries: {
+      "youtube-transcript-speaker-diarization": {
+        enabled: true,
+        config: {
+          apiKey: "YOUR_DIARIZE_API_KEY",
+          baseUrl: "https://diarize.io",
+        },
+      },
+    },
+  },
+}
+```
+
+### Alternative: standalone skill
+
+The standalone skill is more inspectable and easier to audit line-by-line, but it requires `bash`, `curl`, and `jq` on the host machine.
+
+```bash
+openclaw skills install ./skill
 ```
 
 ## Authentication
@@ -64,6 +97,14 @@ Both install surfaces accept:
 - optional `DIARIZE_BASE_URL`
 
 The default API base URL is `https://diarize.io`.
+
+The standalone skill can also read OpenClaw skill config. The native plugin can also read plugin config.
+
+Useful links:
+
+- [Sign up for diarize](https://diarize.io)
+- [Create or revoke API keys](https://diarize.io/settings/api-keys)
+- [Diarize API docs](https://diarize.io/docs)
 
 ## What data leaves the machine
 

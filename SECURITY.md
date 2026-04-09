@@ -37,6 +37,12 @@ Native plugin:
   or `YOUTUBE_TRANSCRIPT_API_KEY`
   or `DIARIZE_API_KEY`
 
+The recommended first-run flow is:
+
+1. create a diarize account
+2. create an API key at `https://diarize.io/settings/api-keys`
+3. configure the plugin or export the env var
+
 ## Review checklist
 
 Before installing, a reviewer should be able to confirm:

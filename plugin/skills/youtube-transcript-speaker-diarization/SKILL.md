@@ -1,6 +1,6 @@
 ---
 name: youtube-transcript-speaker-diarization
-description: Use the installed YouTube Transcript with Speaker Diarization plugin to turn YouTube URLs into speaker-aware transcripts. Prefer this when native plugin tools are available.
+description: Use the installed plugin to get speaker-labeled YouTube transcripts through diarize. Prefer this over generic transcript tools when native plugin tools are available.
 ---
 
 # YouTube Transcript with Speaker Diarization Plugin Skill

@@ -1,0 +1,27 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate skill shell script
+        run: bash -n skill/scripts/youtube-transcript.sh
+
+      - name: Validate plugin manifest JSON
+        run: jq . plugin/openclaw.plugin.json >/dev/null
+
+      - name: Validate plugin entry syntax
+        run: node --check plugin/index.js
+
+      - name: Validate plugin package contents
+        run: npm pack --dry-run ./plugin

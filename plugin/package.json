@@ -1,0 +1,30 @@
+{
+  "name": "@diarize/openclaw-youtube-transcript-speaker-diarization",
+  "version": "0.1.0",
+  "description": "OpenClaw plugin for YouTube transcripts with speaker diarization powered by diarize.",
+  "type": "module",
+  "files": [
+    "index.js",
+    "openclaw.plugin.json",
+    "skills"
+  ],
+  "openclaw": {
+    "extensions": [
+      "./index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.4.8",
+      "minGatewayVersion": "2026.4.8"
+    },
+    "build": {
+      "openclawVersion": "2026.4.8",
+      "pluginSdkVersion": "2026.4.8"
+    }
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.49"
+  },
+  "peerDependencies": {
+    "openclaw": "^2026.4.8"
+  }
+}

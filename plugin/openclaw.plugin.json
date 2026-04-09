@@ -1,0 +1,46 @@
+{
+  "id": "youtube-transcript-speaker-diarization",
+  "name": "YouTube Transcript with Speaker Diarization",
+  "description": "Turn YouTube links into speaker-aware transcripts with diarization through diarize.",
+  "version": "0.1.0",
+  "skills": [
+    "skills/youtube-transcript-speaker-diarization"
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "minLength": 1
+      },
+      "baseUrl": {
+        "type": "string",
+        "minLength": 1
+      },
+      "requestTimeoutMs": {
+        "type": "integer",
+        "minimum": 1000,
+        "maximum": 600000
+      }
+    }
+  },
+  "uiHints": {
+    "apiKey": {
+      "label": "API key",
+      "help": "Diarize API key used for job creation and transcript downloads.",
+      "sensitive": true
+    },
+    "baseUrl": {
+      "label": "Base URL",
+      "help": "Override only if you host the API elsewhere.",
+      "placeholder": "https://diarize.io"
+    },
+    "requestTimeoutMs": {
+      "label": "Request timeout (ms)",
+      "help": "Per-request HTTP timeout for submit, status, and transcript fetch calls.",
+      "advanced": true,
+      "placeholder": "120000"
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 This folder contains the standalone OpenClaw skill.
 
-This is the more inspectable install path, but not the simplest one. Use it if you want a plain shell script you can audit end to end.
+This is the fastest way to try the integration. It is also the most inspectable path if you want a plain shell script you can audit end to end.
 
 Before installing:
 
@@ -15,6 +15,8 @@ Install locally:
 ```bash
 openclaw skills install ./skill
 ```
+
+If you later move to the native plugin, remove this standalone skill from your active OpenClaw workspace first. The plugin already bundles its own skill guidance, and keeping both installed can create confusing precedence issues.
 
 Primary files:
 

@@ -7,6 +7,8 @@ description: Use the installed plugin to get speaker-labeled YouTube transcripts
 
 Use the native plugin tools instead of raw curl when this plugin is installed.
 
+Do not also keep a separate standalone workspace skill with the same capability installed. This bundled plugin skill should be the one teaching the agent how to use the plugin tools.
+
 ## Preferred tool
 
 Use `youtube_transcript_run` first when you want the finished transcript from a single YouTube URL in one step.
